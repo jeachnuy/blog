@@ -23,7 +23,7 @@ public class DummyControllerTest {
     @DeleteMapping("/dummy/user/{id}")
     public String delete(@PathVariable int id) {
         try {
-        userRepository.deleteById(id);
+            userRepository.deleteById(id);
         } catch (EmptyResultDataAccessException e) {
             return "삭제에 실패하였습니다. 해당 id는 DB에 존재하지 않습니다.";
         }
@@ -73,7 +73,7 @@ public class DummyControllerTest {
 
     //한페이지당 2건에 데이터를 리턴받아 볼 예정
     @GetMapping("/dummy/user/page")
-    public List<User> pageList(@PageableDefault(size = 2, sort = "id", direction = Sort.Direction.DESC)Pageable pageable) {
+    public List<User> pageList(@PageableDefault(size = 2, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
         Page<User> pagingUsers = userRepository.findAll(pageable);
         List<User> users = pagingUsers.getContent();
         return users;
@@ -94,7 +94,7 @@ public class DummyControllerTest {
 
         //람다
         User user = userRepository.findById(id)
-                                .orElseThrow(() -> new IllegalArgumentException("해당 사용자는 없습니다. id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("해당 사용자는 없습니다. id: " + id));
         //요청:웹브라우저
         //user 객체=자바 오브젝트
         //변환 (웹브라우저가 이해할 수 있는 데이) -> json(Gson라이브러리)
@@ -103,6 +103,7 @@ public class DummyControllerTest {
         //user오브젝트를 json으로 변환해서 브라우저에게 던져줌
         return user;
     }
+
     @PostMapping("/dummy/join")
     //public String join(String username, String password, String email) { //key=value (야속된 규칙)
     public String join(User user) { //오브젝트도 가능
