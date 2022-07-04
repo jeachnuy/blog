@@ -15,3 +15,4 @@
 22.07.04
 * SpringSecurity 5.7에서 WebSecurityConfigurerAdapter 지원 안해준다고 한다
 * https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter
+* WebSecurityConfigurerAdapter 안쓰는 방향으로 컴파일, 작동 모두 되는데 이게 맞는지는 모르겠음
