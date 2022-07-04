@@ -22,17 +22,17 @@ dependencies {
 //	추가 라이브러리 시작
 	implementation 'javax.servlet:jstl' //jstl
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper' //jsp 템플릿 엔진
-	//implementation 'org.springframework.security:spring-security-taglibs' //시큐리티 태그 라이브러리
+	implementation 'org.springframework.security:spring-security-taglibs' //시큐리티 태그 라이브러리
 //	추가 라이브러리 종료
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	//implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'mysql:mysql-connector-java'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	//testImplementation 'org.springframework.security:spring-security-test'
+	testImplementation 'org.springframework.security:spring-security-test'
 }
 
 tasks.named('test') {
