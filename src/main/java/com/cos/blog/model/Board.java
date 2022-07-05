@@ -27,7 +27,6 @@ public class Board {
     @Lob //대용량 데이터
     private String content; //섬머노트 라이브러리 <hml>태그가 섞여서 디자인 됨.
 
-    @ColumnDefault("0")
     private int count; //조회수
 
     @ManyToOne(fetch = FetchType.EAGER) //Board = Many, User = One 하나의 유저는 많은 보드를 만들수 있다.
