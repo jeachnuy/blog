@@ -21,6 +21,8 @@ public class SecurityConfig {
     @Autowired
     private PrincipalDetailService principalDetailService;
 
+
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()//csrf토큰 비활성화 (테스트할때 걸어두는게 좋음)

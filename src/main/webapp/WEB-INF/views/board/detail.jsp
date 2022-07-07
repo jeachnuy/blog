@@ -25,7 +25,12 @@
             <div>${board.content}</div>
         </div>
         <hr/>
-
+    <div>
+        <div>
+            <div><textarea class="form-control" rows="1"></textarea> </div>
+            <div><button class="btn btn-primary">등록</button> </div>
+        </div>
+    </div>
 </div>
 <script src="/js/board.js"></script>
 <%@ include file="../layout/footer.jsp" %>
