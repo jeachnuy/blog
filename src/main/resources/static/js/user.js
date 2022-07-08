@@ -56,7 +56,11 @@ let index = {
             contentType: "application/json; charset=utf-8",//body데이터가 어떤 타입인지(MIME)
             dataType: "json"//요청을 서버로 해서 응답이 왔을 때 기본적으로 모든 것이 문자열
         }).done(function (res) {
-            alert("회원가입이 완료되었습니다.");
+            if(res.status === 500) {
+                alert("회원가입에 실패하였습니다.");
+            } else {
+                alert("회원가입이 완료되었습니다.");
+            }
 //            alert(res);
             location.href="/";
         }).fail(function (error) {

@@ -9,6 +9,9 @@ let index = {
         $("#btn-update").on("click",() => { //function(){} 말고 ()=>{} this를 바인딩하기 위해서
             this.update();
         });
+        $("#btn-reply-save").on("click",() => { //function(){} 말고 ()=>{} this를 바인딩하기 위해서
+            this.replySave();
+        });
     },
 
     save: function () {
@@ -51,7 +54,7 @@ let index = {
         let id=$("#id").val();
         let data = {
             title: $("#title").val(),
-            content: $("#content").val()
+            content: $("#reply-content").val()
         }
         $.ajax({
             type: "PUT",
@@ -65,7 +68,28 @@ let index = {
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
-    }
+    },
+
+    replySave: function () {
+            let data = {
+                userId: $("#userId").val(),
+                boardId: $("#boardId").val(),
+                content: $("#reply-content").val()
+            };
+            console.log(boardId);
+            $.ajax({
+                type: "POST",
+                url: `/api/board/${data.boardId}/reply`,
+                data: JSON.stringify(data), //http body데이터
+                contentType: "application/json; charset=utf-8",//body데이터가 어떤 타입인지(MIME)
+                dataType: "json"//요청을 서버로 해서 응답이 왔을 때 기본적으로 모든 것이 문자열
+            }).done(function (res) {
+                alert("댓글작성이 완료되었습니다.");
+                location.href=`/board/${data.boardId}`;
+            }).fail(function (error) {
+                alert(JSON.stringify(error));
+            });
+        }
 }
 
 index.init();
